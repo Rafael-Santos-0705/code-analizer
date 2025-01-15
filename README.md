@@ -1,4 +1,4 @@
-# Code Analyzer: Uma Plataforma de Análise de Código Inteligente
+# Code Analyzer
 
 Este repositório contém a **Plataforma de Análise de Código**, projetada para analisar trechos de código e fornecer melhorias com base nos princípios SOLID e padrões de projeto. A aplicação utiliza Python, FastAPI e a integração com CrewAI, com foco em manter a qualidade do código e ajudar desenvolvedores a aprimorar seus projetos.
 
@@ -64,7 +64,7 @@ Python 3.11 ou superior
 Docker e Docker Compose
 ### 2. Clonar o Repositório
 ```bash
-git clone https://github.com/seu-usuario/code-analyzer.git
+git clone https://github.com/Rafael-Santos-0705/code-analizer
 cd code-analyzer
 ```
 ### 3. Configurar e Iniciar os Serviços com Docker Compose
