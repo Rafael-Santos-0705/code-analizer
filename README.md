@@ -61,7 +61,6 @@ O projeto está organizado em uma estrutura modular e bem definida para facilita
 ├── .env                         # Arquivo de variáveis de ambiente
 ├── .gitignore                   # Arquivo para ignorar arquivos no Git
 ├── alembic.ini                  # Configuração do Alembic
-├── config.yml                   # Configuração YAML da aplicação
 ├── docker-compose.yml           # Orquestração com Docker Compose
 ├── Dockerfile                   # Configuração da imagem Docker
 ├── main.py                      # Ponto de entrada da aplicação
