@@ -18,32 +18,62 @@ O Code Analyzer oferece as seguintes funcionalidades:
 
 ## Estrutura do Projeto
 
+O projeto está organizado em uma estrutura modular e bem definida para facilitar a manutenção e a escalabilidade:
+ 
 ```plaintext
 .
-├── agents               # Define agentes de IA
-│   └── agents.py        # Define o agente de melhoria de código
-├── entities             # Modelos e provedores
-│   ├── analysis_history.py # Modelo para armazenar histórico de análises
-│   └── llm_provider.py  # Provedor do modelo de linguagem LLM
-├── repositories         # Acesso ao banco de dados
-│   └── analysis.py      # Repositório para histórico de análises
-├── routes               # Rotas da API
-│   ├── code_analyzer.py # Rota principal para análise de código
-│   └── health.py        # Verificação de saúde da aplicação
-├── services             # Lógica de negócios
-│   └── code_analyzer.py # Serviço que gerencia a análise de código
-├── utils                # Funções utilitárias
-│   ├── environment.py   # Gerencia variáveis de ambiente
-│   └── main.py          # Configurações e inicialização da aplicação
-├── migrations           # Migrações do banco de dados (Alembic)
-├── Dockerfile           # Configuração da imagem Docker
-├── docker-compose.yml   # Orquestração com Docker Compose
-├── requirements.txt     # Dependências Python
-└── .env                 # Variáveis de ambiente
+├── app
+│   ├── adapters                 # Camada de adaptação para serviços externos
+│   │   ├── dtos                 # Objetos de Transferência de Dados (DTOs)
+│   │   │   ├── code.py          # DTO para análise de código
+│   │   │   ├── response.py      # DTO para respostas da API
+│   │   │   └── __init__.py      # Inicializador do módulo DTOs
+│   │   └── api_client.py        # Cliente HTTP para APIs externas
+│   ├── agents                   # Definição de agentes de IA
+│   │   ├── agents.py            # Agente para melhoria de código
+│   │   ├── tasks.py             # Definição de tarefas para os agentes
+│   │   └── __init__.py          # Inicializador do módulo de agentes
+│   ├── entities                 # Modelos de dados e provedores de entidades
+│   │   ├── analysis_history.py  # Modelo para armazenar histórico de análises
+│   │   ├── llm_provider.py      # Provedor de modelo de linguagem (LLM)
+│   │   └── __init__.py          # Inicializador do módulo de entidades
+│   ├── repositories             # Acesso a dados e persistência
+│   │   ├── analysis.py          # Repositório para histórico de análises
+│   │   ├── base_db.py           # Repositório base para acesso ao banco de dados
+│   │   └── __init__.py          # Inicializador do módulo de repositórios
+│   ├── routes                   # Definição das rotas da API
+│   │   ├── code_analyzer.py     # Rotas principais para análise de código
+│   │   ├── health.py            # Rota para verificação de saúde
+│   │   └── __init__.py          # Inicializador do módulo de rotas
+│   ├── services                 # Lógica de negócios da aplicação
+│   │   ├── code_analyzer.py     # Serviço de análise de código
+│   │   └── __init__.py          # Inicializador do módulo de serviços
+│   └── utils                    # Ferramentas e utilitários
+│       ├── checkers.py          # Validações utilitárias
+│       ├── environment.py       # Gerenciamento de variáveis de ambiente
+│       ├── initialize.py        # Configuração inicial do sistema
+│       ├── logger.py            # Configuração de logging
+│       ├── policy.py            # Gerenciamento de políticas CORS
+│       └── __init__.py          # Inicializador do módulo de utilitários
+├── migrations                   # Migrações do banco de dados (Alembic)
+│   ├── versions                 # Arquivos de versões de migrações
+│   └── env.py                   # Configuração do ambiente Alembic
+├── .env                         # Arquivo de variáveis de ambiente
+├── .gitignore                   # Arquivo para ignorar arquivos no Git
+├── alembic.ini                  # Configuração do Alembic
+├── config.yml                   # Configuração YAML da aplicação
+├── docker-compose.yml           # Orquestração com Docker Compose
+├── Dockerfile                   # Configuração da imagem Docker
+├── main.py                      # Ponto de entrada da aplicação
+├── README.md                    # Documentação principal do projeto
+├── requirements.txt             # Dependências do Python
+
 
 ```
 Variáveis de Ambiente
-Configure sua aplicação com o arquivo .env. Exemplo:
+Configure sua aplicação com o arquivo .env. 
+
+Exemplo:
 ```plaintext
 APPLICATION_TITLE="Code Analyzer"
 APPLICATION_URL="http://localhost:8000"
