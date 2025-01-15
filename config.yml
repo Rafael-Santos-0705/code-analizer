@@ -1,0 +1,45 @@
+default_models:
+  chat_name: "chatgpt-4o"
+  embedding_name: "openai"
+
+models:
+  chat:
+    chatgpt-3:
+      type: "GPT"
+      parameters:
+        model_name: "gpt-3.5-turbo"
+        temperature: 0.5
+        # max_tokens: 1000
+        # timeout: 600
+        max_retries: 2
+        api_key: "${OPENAI_API_KEY}"
+
+    chatgpt-4o-mini:
+      type: "GPT"
+      parameters:
+        model_name: "gpt-4o-mini"
+        temperature: 0.5
+        # max_tokens: 1000
+        # timeout: 600
+        max_retries: 2
+        api_key: "${OPENAI_API_KEY}"
+
+    chatgpt-4o:
+      type: "GPT"
+      parameters:
+        model_name: "gpt-4o"
+        temperature: 0.5
+        # max_tokens: 1000
+        # timeout: 600
+        max_retries: 2
+        api_key: "${OPENAI_API_KEY}"
+
+    gemini-flash:
+      type: "GEMINI"
+      parameters:
+        project: "${GOOGLE_PROJECT}"
+        location: "${GOOGLE_LOCATION}"
+        model_name: "gemini-1.5-flash-001"
+        temperature: 0.7
+        # top_p: 0.85
+        # top_k: 60
